@@ -1,0 +1,34 @@
+body::before {
+  display: block;
+  content: "";
+  height: 55px;
+  }
+
+  .tt-hover:hover {
+    font-size: large;
+    color: red;
+  }
+
+  #learn {
+    scroll-margin-top: 55px;
+  }
+
+  #questions {
+    scroll-margin-top: 55px;
+  }
+
+  #instructors {
+    scroll-margin-top: 55px;
+  }
+
+
+@media (min-width: 768px) {
+  .news-input {
+  width: 50%;
+  }
+ }
+
+.tt-icon {
+  width:150px;
+  margin: auto;
+}

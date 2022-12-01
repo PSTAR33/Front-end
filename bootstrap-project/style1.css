@@ -1,0 +1,20 @@
+body::before {
+  display: block;
+  content: "";
+  height: 55px;
+}
+
+.tt-hover:hover {
+  font-size: large;
+  color: green;
+}
+
+@media (max-width: 768px) {
+  .tt-size {
+    height: 300px;
+  }
+}
+
+#learn, #questions, #instructors {
+  scroll-margin-top: 180px;
+}
