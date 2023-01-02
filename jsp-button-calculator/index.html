@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./mycss.css">
+</head>
+
+<body>
+  <h2>JavaScript Getters and Setters</h2>
+  <p>Perfect for creating counters:</p>
+
+  <div class="c-input">
+    <input type="text" id="resultF" style="width:170px; height:40px">
+  </div>
+  <div class="button">
+    <button value="9" onclick="btnClick(9)">9</button>
+    <button value="8" onclick="btnClick(8)">8</button>
+    <button value="7" onclick="btnClick(7)">7</button>
+    <button value="+" onclick="call('+')">+</button>
+  </div>
+  <div class="button">
+    <button value="6" onclick="btnClick(6)">6</button>
+    <button value="5" onclick="btnClick(5)">5</button>
+    <button value="4" onclick="btnClick(4)">4</button>
+    <button value="-" onclick="call('-')">-</button>
+  </div>
+  <div class="button">
+    <button value="3" onclick="btnClick(3)">3</button>
+    <button value="2" onclick="btnClick(2)">2</button>
+    <button value="1" onclick="btnClick(1)">1</button>
+    <button value="*" onclick="call('*')">*</button>
+  </div>
+  <div class="button">
+    <button onclick="btnClick(0)">0</button>
+    <button onclick="clear_del()">C</button>
+    <button onclick="myCount()">=</button>
+    <button value="/" onclick="call('/')">/</button>
+  </div>
+
+  <script>
+    let fnum = 0;
+    let lnum = 0;
+    let oper = "";
+
+    function btnClick(a) {
+      resultF.value += a;
+    }
+
+    function call(b) {
+        if (oper == "+" || oper == "-" || oper == "*" || oper == "/"){
+          switch (oper) {
+            case "+":
+              lnum = Number(fnum) + Number(resultF.value);
+              break;
+            case "-":
+              lnum = Number(fnum) - Number(resultF.value);
+              break;
+            case "*":
+              lnum = Number(fnum) * Number(resultF.value);
+              break;
+            case "/":
+              lnum = Number(fnum) / Number(resultF.value);
+              break;
+          }
+        fnum = lnum
+        oper = b;
+        }
+
+        else {
+          fnum = document.getElementById("resultF").value;
+          oper = b;
+        }
+        document.getElementById("resultF").value = "";
+      }
+      
+    function myCount() {
+      switch (oper) {
+        case "+":
+          lnum = Number(fnum) + Number(resultF.value);
+          break;
+        case "-":
+          lnum = Number(fnum) - Number(resultF.value);
+          break;
+        case "*":
+          lnum = Number(fnum) * Number(resultF.value);
+          break;
+        case "/":
+          lnum = Number(fnum) / Number(resultF.value);
+          break;
+      }
+      document.getElementById("resultF").value = lnum;
+    }
+
+    function clear_del() {
+      document.getElementById("resultF").value = "";
+      fnum = 0;
+      lnum = 0;
+      oper = "";
+    }
+  </script>
+
+</body>
+
+</html>
