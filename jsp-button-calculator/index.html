@@ -10,7 +10,8 @@
   <p>Perfect for creating counters:</p>
 
   <div class="c-input">
-    <input type="text" id="resultF" style="width:170px; height:40px">
+    <input type="text" id="calcF" style="width:90px; height:40px">
+    <input type="text" id="resultF" style="width:65px; height:40px">
   </div>
   <div class="button">
     <button value="9" onclick="btnClick(9)">9</button>
@@ -43,23 +44,23 @@
     let oper = "";
 
     function btnClick(a) {
-      resultF.value += a;
+      calcF.value += a;
     }
 
     function call(b) {
         if (oper == "+" || oper == "-" || oper == "*" || oper == "/"){
           switch (oper) {
             case "+":
-              lnum = Number(fnum) + Number(resultF.value);
+              lnum = Number(fnum) + Number(calcF.value);
               break;
             case "-":
-              lnum = Number(fnum) - Number(resultF.value);
+              lnum = Number(fnum) - Number(calcF.value);
               break;
             case "*":
-              lnum = Number(fnum) * Number(resultF.value);
+              lnum = Number(fnum) * Number(calcF.value);
               break;
             case "/":
-              lnum = Number(fnum) / Number(resultF.value);
+              lnum = Number(fnum) / Number(calcF.value);
               break;
           }
         fnum = lnum
@@ -67,32 +68,37 @@
         }
 
         else {
-          fnum = document.getElementById("resultF").value;
+          fnum = document.getElementById("calcF").value;
           oper = b;
         }
-        document.getElementById("resultF").value = "";
+        document.getElementById("calcF").value = "";
       }
       
     function myCount() {
       switch (oper) {
         case "+":
-          lnum = Number(fnum) + Number(resultF.value);
+          lnum = Number(fnum) + Number(calcF.value);
           break;
         case "-":
-          lnum = Number(fnum) - Number(resultF.value);
+          lnum = Number(fnum) - Number(calcF.value);
           break;
         case "*":
-          lnum = Number(fnum) * Number(resultF.value);
+          lnum = Number(fnum) * Number(calcF.value);
           break;
         case "/":
-          lnum = Number(fnum) / Number(resultF.value);
+          lnum = Number(fnum) / Number(calcF.value);
           break;
       }
       document.getElementById("resultF").value = lnum;
+      document.getElementById("calcF").value = "";
+      fnum = 0;
+      lnum = 0;
+      oper = "";
     }
 
     function clear_del() {
       document.getElementById("resultF").value = "";
+      document.getElementById("calcF").value = "";
       fnum = 0;
       lnum = 0;
       oper = "";
