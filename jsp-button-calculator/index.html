@@ -48,28 +48,36 @@
     }
 
     function call(b) {
-        if (oper == "+" || oper == "-" || oper == "*" || oper == "/"){
-          switch (oper) {
-            case "+":
-              lnum = Number(fnum) + Number(calcF.value);
-              break;
-            case "-":
-              lnum = Number(fnum) - Number(calcF.value);
-              break;
-            case "*":
-              lnum = Number(fnum) * Number(calcF.value);
-              break;
-            case "/":
-              lnum = Number(fnum) / Number(calcF.value);
-              break;
-          }
-        fnum = lnum
-        oper = b;
-        }
-
-        else {
-          fnum = document.getElementById("calcF").value;
+        
+        if (resultF.value != 0) {
+          fnum = document.getElementById("resultF").value;
+          resultF.value = "";
           oper = b;
+        }
+        else {
+          if (oper == "+" || oper == "-" || oper == "*" || oper == "/"){
+            switch (oper) {
+              case "+":
+                lnum = Number(fnum) + Number(calcF.value);
+                break;
+              case "-":
+                lnum = Number(fnum) - Number(calcF.value);
+                break;
+              case "*":
+                lnum = Number(fnum) * Number(calcF.value);
+                break;
+              case "/":
+                lnum = Number(fnum) / Number(calcF.value);
+                break;
+            }
+            fnum = lnum
+            oper = b;
+          }
+
+          else {
+            fnum = document.getElementById("calcF").value;
+            oper = b;
+          }
         }
         document.getElementById("calcF").value = "";
       }
